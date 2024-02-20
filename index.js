@@ -26,7 +26,9 @@ app.use("/api/v1/blog", blogRoutes);
 
 //Port
 const port = process.env.PORT || 8000;
-
+app.get(() => {
+  <h1>Server IS Rnning</h1>;
+});
 //listen
 app.listen(8000, () => {
   console.log(`Server Running On Port ${port}`);
