@@ -1,0 +1,11 @@
+/* .forTab {
+  display: none;
+} */
+@media screen and (min-width: 764px) {
+  .forWindow {
+    display: none;
+  }
+  .forTab {
+    display: block;
+  }
+}
