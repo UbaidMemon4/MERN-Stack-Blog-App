@@ -25,7 +25,7 @@ app.use("/api/v1/user", userRoutes);
 app.use("/api/v1/blog", blogRoutes);
 
 //Port
-const port = process.env.PORT || 8000;
+const port = process.env.PORT;
 
 app.get("/", (req, res) => {
   res.send("<h1>Server Running Sucessfully</h1>");
