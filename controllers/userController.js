@@ -6,17 +6,17 @@ exports.registerController = async (req, res) => {
   console.log("req.body", req.body);
   try {
     const { username, email, password } = req.body;
-    //vadlidation
+    //validation
     if (!username || !email || !password) {
-      res.status(400).send({
+      return res.status(400).send({
         success: false,
-        message: "plase fiels all blanks",
+        message: "please fields all blanks",
       });
     }
     //exisiting user
     const existingUser = await UserModal.findOne({ email });
     if (existingUser) {
-      res.status(401).send({
+      return res.status(401).send({
         success: false,
         message: "User Aleady Exisits",
       });

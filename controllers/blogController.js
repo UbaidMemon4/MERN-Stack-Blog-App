@@ -7,7 +7,7 @@ exports.getAllBlogsContoller = async (req, res) => {
   try {
     const blogs = await blogModal.find({}).populate("user");
     if (!blogs) {
-      return res.status(200).send({
+      return res.status(400).send({
         success: false,
         message: "blog not found",
       });
@@ -99,7 +99,6 @@ exports.getBlogByIdContoller = async (req, res) => {
 exports.updateBlogContoller = async (req, res) => {
   try {
     const { id } = req.params;
-    // const { titel, description, image } = req.body;
     const blog = await blogModal.findByIdAndUpdate(
       id,
       { ...req.body },
@@ -124,12 +123,6 @@ exports.updateBlogContoller = async (req, res) => {
 exports.deleteBlogContoller = async (req, res) => {
   try {
     const blog = await blogModal.findByIdAndDelete(req.params.id);
-    // .populate("user");
-    // console.log("blogUser=>", blog);
-    // const blogUser = await blog.populate("user");
-    // await blog.user.pull(blog);
-    // await blog.user.save();
-
     return res.status(200).send({
       success: true,
       message: "Blog Deleted!",
@@ -145,7 +138,6 @@ exports.deleteBlogContoller = async (req, res) => {
 };
 
 // Get User Blog
-
 exports.userBlogContoller = async (req, res) => {
   try {
     const userBlog = await UserModal.findById(req.params.id).populate("blogs");

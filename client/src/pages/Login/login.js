@@ -15,7 +15,8 @@ const Login = () => {
     password: "",
   });
   //handle input change
-  const handleChange = (e) => {
+  const handleChange
+   = (e) => {
     setInputs((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
